@@ -6,13 +6,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.php
-    image: laravel-study
+    image: laravel-study:test
 
   nginx-study:
     build:
       context: .
       dockerfile: Dockerfile.nginx
-    image: nginx-study
+    image: nginx-study:test
     container_name: nginx-study
     ports:
     - 80:80
