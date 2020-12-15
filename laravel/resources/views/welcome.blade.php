@@ -61,6 +61,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .laravel-title {
+                color: red;
+                border: 1px solid salmon;
+                border-radius: 8px;
+                padding: 18px;
+            }
         </style>
     </head>
     <body>
@@ -81,7 +88,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Laravel
+                    <h1 class="laravel-title">Laravel Laravel</h1>
                 </div>
 
                 <div class="links">
