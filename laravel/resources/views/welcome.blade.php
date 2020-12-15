@@ -63,8 +63,9 @@
             }
 
             .laravel-title {
-                color: red;
+                color: greenyellow;
                 border: 1px solid salmon;
+                font-size: 24px;
                 border-radius: 8px;
                 padding: 18px;
             }
