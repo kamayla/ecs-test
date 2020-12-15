@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  laravel-study:
+    container_name: laravel-study
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/laravel-study:4
+
+  nginx-study:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/nginx-study:4
+    container_name: nginx-study
+    ports:
+    - 80:80
+
+  study-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
+    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/study-db:5
+    container_name: study-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+    - 3306:3306
