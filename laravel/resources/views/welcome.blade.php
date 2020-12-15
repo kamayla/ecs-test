@@ -91,6 +91,7 @@
                 <div class="title m-b-md">
                     <h1 class="laravel-title">Laravel Laravel</h1>
                     <h1 class="laravel-title">Rails Rails</h1>
+                    <h1 class="laravel-title">Im king of the world</h1>
                 </div>
 
                 <div class="links">
