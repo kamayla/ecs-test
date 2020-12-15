@@ -90,6 +90,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h1 class="laravel-title">Laravel Laravel</h1>
+                    <h1 class="laravel-title">Rails Rails</h1>
                 </div>
 
                 <div class="links">
