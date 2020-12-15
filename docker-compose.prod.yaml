@@ -6,13 +6,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.php
-    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/laravel-study:4
+    image: laravel-study
 
   nginx-study:
     build:
       context: .
       dockerfile: Dockerfile.nginx
-    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/nginx-study:4
+    image: nginx-study
     container_name: nginx-study
     ports:
     - 80:80
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.mysql
-    image: 336014195637.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-practice/study-db:5
+    image: study-db
     container_name: study-db
     environment:
       MYSQL_ROOT_PASSWORD: root
