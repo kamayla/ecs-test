@@ -20,4 +20,6 @@ WORKDIR /var/www
 
 RUN composer global require "laravel/installer"
 
+RUN composer install
+
 RUN chmod 777 -R storage
