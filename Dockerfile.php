@@ -3,7 +3,9 @@ COPY php.ini /usr/local/etc/php/
 COPY ./laravel /var/www/
 
 RUN apt-get update \
-  && apt-get install -y zlib1g-dev mariadb-client \
+  && apt-get install -y \
+  zlib1g-dev mariadb-client \
+  vim \
   && docker-php-ext-install zip pdo_mysql
 
 #Composer install

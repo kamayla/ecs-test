@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: gold;
+                background-color: purple;
                 color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
