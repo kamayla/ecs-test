@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -89,6 +89,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                    <h1 class="laravel-title">CodePipeline</h1>
                     <h1 class="laravel-title">Laravel Laravel</h1>
                     <h1 class="laravel-title">Rails Rails</h1>
                     <h1 class="laravel-title">Im king of the world</h1>
