@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #636b6f;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -63,7 +63,7 @@
             }
 
             .laravel-title {
-                color: greenyellow;
+                color: #09ff00;
                 border: 1px solid salmon;
                 font-size: 24px;
                 border-radius: 8px;
@@ -92,6 +92,7 @@
                     <h1 class="laravel-title">Laravel Laravel</h1>
                     <h1 class="laravel-title">Rails Rails</h1>
                     <h1 class="laravel-title">Im king of the world</h1>
+                    <h1 class="laravel-title">Im Docker Master</h1>
                 </div>
 
                 <div class="links">
