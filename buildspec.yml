@@ -9,6 +9,7 @@ phases:
       docker: 19
   pre_build:
     commands:
+      - echo ${APP_NAME}
       ##### dockerリポジトリへのログイン ###################################
       # ECRのリポジトリにログイン
       - $(aws ecr get-login --no-include-email --region ${AWS_REGION})
@@ -53,8 +54,6 @@ phases:
       - IMGDEF_JSON="["${IMGDEF_JSON:0:${#IMGDEF_JSON}-1}"]"
       - echo ${IMGDEF_JSON}
       - echo ${IMGDEF_JSON} > ${IMGDEF_JSON_FILE}
-      - ls -a
-
 artifacts:
   files:
     - '**/*'
