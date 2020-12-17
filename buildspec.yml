@@ -29,8 +29,8 @@ phases:
       # 下記のDockerfileが変更されていたらイメージをビルドしてECRへpushする
       - IMGDEF_JSON_FILE=${ROOT_DIR}/imagedefinitions.json
       - touch ${ROOT_DIR}/laravel/.env
-      - echo DB_HOST=$DB_HOST >> ${ROOT_DIR}/laravel/.env
-      - echo DB_PASSWORD=$DB_PASSWORD >> ${ROOT_DIR}/laravel/.env
+      - echo DB_HOST=ecs-practice-db.cqyv2st56hxy.ap-northeast-1.rds.amazonaws.com >> ${ROOT_DIR}/laravel/.env
+      - echo DB_PASSWORD=iikusa4649 >> ${ROOT_DIR}/laravel/.env
       - echo DB_CONNECTION=mysql >> ${ROOT_DIR}/laravel/.env
       - echo DB_PORT=3306 >> ${ROOT_DIR}/laravel/.env
       - echo DB_DATABASE=ecsdb >> ${ROOT_DIR}/laravel/.env
