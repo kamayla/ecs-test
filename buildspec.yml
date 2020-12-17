@@ -54,7 +54,7 @@ phases:
       # Dockerfileが更新されていたらイメージをビルドしてECRへpush、されていなければlatestをpull
       # - docker-compose -f docker-compose.prod.yaml build --no-cache laravel-study
       - docker-compose -f docker-compose.prod.yaml up --build -d laravel-study
-      - docker-compose exec laravel-study bash -c "php artisan migrate"
+      - echo $(docker-compose exec laravel-study bash -c "php artisan migrate")
       - |
         set -e
         IMGDEF_JSON=${IMGDEF_JSON}$(printf '{"name":"%s", "imageUri": "%s"},' laravel ${ECR_IMAGE_LARAVEL_URI}:${COMMIT_HASH})
