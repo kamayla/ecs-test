@@ -3,8 +3,6 @@ env:
   parameter-store:
     DOCKER_USER: dockerhub-user
     DOCKER_TOKEN: dockerhub-token
-    DB_HOST: ecs-laravel-db-host
-    DB_PASSWORD: ecs-laravel-db-pass
 phases:
   install:
     runtime-versions:
@@ -14,6 +12,7 @@ phases:
       - echo $DOCKER_USER
       - echo $DOCKER_TOKEN
       - echo $DB_HOST
+      - echo ${DB_HOST}
       - echo $DB_PASSWORD
       - echo ${ecs-laravel-db-host}
       # ##### dockerリポジトリへのログイン ###################################
