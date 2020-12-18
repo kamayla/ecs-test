@@ -49,12 +49,13 @@ phases:
     commands:
       - IMGDEF_JSON=""
       - cd ${ROOT_DIR}; echo ">>> [dir] `pwd`"
+      - docker-compose -f docker-compose.test.yaml up --abort-on-container-exit
+      - docker-compose -f docker-compose.test.yaml down
       
       ##### dockerイメージのビルド ###################################
       # Dockerfileが更新されていたらイメージをビルドしてECRへpush、されていなければlatestをpull
       - docker-compose -f docker-compose.prod.yaml up --build -d
       - docker exec laravel-study bash -c "php artisan migrate --force"
-      - docker-compose -f docker-compose.test.yaml up --abort-on-container-exit
       - |
         set -e
         IMGDEF_JSON=${IMGDEF_JSON}$(printf '{"name":"%s", "imageUri": "%s"},' laravel ${ECR_IMAGE_LARAVEL_URI}:${COMMIT_HASH})

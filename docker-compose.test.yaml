@@ -9,8 +9,6 @@ services:
       MYSQL_DATABASE: db-test
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
-      TZ: 'Asia/Tokyo'
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
     - ecs_test:/var/lib/mysql
