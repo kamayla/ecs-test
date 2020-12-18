@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: rgb(0, 139, 253);
+                background-color: rgb(253, 207, 0);
                 color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
