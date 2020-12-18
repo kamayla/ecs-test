@@ -10,18 +10,18 @@ services:
     networks:
     - laravel_study-network
 
-  nginx-study:
-    build:
-      context: .
-      dockerfile: Dockerfile.nginx
-    image: nginx-study:test
-    container_name: nginx-study
-    ports:
-    - 80:80
-    depends_on:
-    - laravel-study
-    networks:
-    - laravel_study-network
+  # nginx-study:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.nginx
+  #   image: nginx-study:test
+  #   container_name: nginx-study
+  #   ports:
+  #   - 80:80
+  #   depends_on:
+  #   - laravel-study
+  #   networks:
+  #   - laravel_study-network
 
   study-db:
     image: mysql:5.7
