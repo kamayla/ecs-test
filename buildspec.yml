@@ -44,6 +44,7 @@ phases:
       - echo DB_PORT=3306 >> ${ROOT_DIR}/laravel/.env
       - echo DB_DATABASE=ecsdb >> ${ROOT_DIR}/laravel/.env
       - echo DB_USERNAME=root >> ${ROOT_DIR}/laravel/.env
+      
 
   build:
     commands:
