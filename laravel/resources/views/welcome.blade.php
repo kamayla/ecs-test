@@ -63,7 +63,7 @@
             }
 
             .laravel-title {
-                color: #09ff00;
+                color: orangered;
                 border: 1px solid salmon;
                 font-size: 24px;
                 border-radius: 8px;
@@ -91,7 +91,7 @@
                 <div class="title m-b-md">
                     <h1 class="laravel-title">CodePipeline</h1>
                     <h1 class="laravel-title">Laravel Laravel</h1>
-                    <h1 class="laravel-title">Rails Rails</h1>
+                    <h1 class="laravel-title">Ruby on Rails</h1>
                     <h1 class="laravel-title">Im king of the world</h1>
                     <h1 class="laravel-title">Im Docker Master</h1>
                 </div>
