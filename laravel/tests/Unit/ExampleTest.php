@@ -15,9 +15,11 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $book = new Book();
-        $book->name = 'hoge';
-        $saveBook = $book->save();
-        $this->assertTrue(false);
+        for ($i = 0; $i < 100; $i++) {
+            $book = new Book();
+            $book->name = 'hoge';
+            $saveBook = $book->save();
+        }
+        $this->assertCount(100, Book::all());
     }
 }
