@@ -32,6 +32,8 @@ services:
     - test
     depends_on:
       - db
+    links:
+      - db:mysql
 
 networks:
   test:
