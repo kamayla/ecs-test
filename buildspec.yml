@@ -49,8 +49,8 @@ phases:
     commands:
       - IMGDEF_JSON=""
       - cd ${ROOT_DIR}; echo ">>> [dir] `pwd`"
-      - docker-compose -f docker-compose.test.yaml up db
-      - docker-compose -f docker-compose.test.yaml up ecs_laravel
+      - docker-compose -f docker-compose.test.yaml up db -d
+      - docker-compose -f docker-compose.test.yaml up ecs_laravel -d
       - docker-compose -f docker-compose.test.yaml down
       
       ##### dockerイメージのビルド ###################################
