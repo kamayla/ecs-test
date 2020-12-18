@@ -7,8 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile.php
     image: laravel-study:test
-    depends_on:
-    - laravel-study
     networks:
     - laravel_study-network
 
