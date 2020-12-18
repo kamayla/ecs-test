@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db-test
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      TZ: 'Asia/Tokyo'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ecs_test:/var/lib/mysql
+    ports:
+    - 3306:3306
+    networks:
+    - test
+
+  ecs_laravel:
+    container_name: ecs_laravel
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    image: ecs_laravel
+    environment:
+      APP_ENV: testing
+    command: bash -c 'php artisan migrate --env=testing --force && ./vendor/bin/phpunit'
+    networks:
+    - test
+    depends_on:
+      - db
+
+networks:
+  test:
+    driver: bridge
+volumes:
+  ecs_test:
+    driver: local

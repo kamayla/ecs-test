@@ -15,10 +15,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        dd(env('DB_DATABASE'), env('DB_USERNAME'), env('DB_PASSWORD'));
-        // $book = new Book();
-        // $book->name = 'hoge';
-        // $saveBook = $book->save();
-        // $this->assertTrue($saveBook);
+        $book = new Book();
+        $book->name = 'hoge';
+        $saveBook = $book->save();
+        $this->assertTrue($saveBook);
     }
 }
