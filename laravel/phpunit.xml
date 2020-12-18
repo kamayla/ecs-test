@@ -33,7 +33,7 @@
         <server name="DB_HOST" value="study-db"/>
         <server name="DB_PORT" value="3306"/>
         <server name="DB_DATABASE" value="db-test"/>
-        <server name="DB_USERNAME" value="docker"/>
-        <server name="DB_PASSWORD" value="docker"/>
+        <server name="DB_USERNAME" value="root"/>
+        <server name="DB_PASSWORD" value="root"/>
     </php>
 </phpunit>
