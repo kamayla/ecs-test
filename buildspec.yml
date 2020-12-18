@@ -53,6 +53,7 @@ phases:
       ##### dockerイメージのビルド ###################################
       # Dockerfileが更新されていたらイメージをビルドしてECRへpush、されていなければlatestをpull
       - docker-compose -f docker-compose.prod.yaml up --build -d laravel-study study-db
+      - docker ps
       - docker exec laravel-study bash -c "php artisan migrate --force"
       - docker exec laravel-study bash -c "php artisan migrate --env=testing --force"
       ##### Execute test ########################################
