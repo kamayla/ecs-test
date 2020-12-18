@@ -18,6 +18,6 @@ class ExampleTest extends TestCase
         $book = new Book();
         $book->name = 'hoge';
         $saveBook = $book->save();
-        $this->assertTrue($saveBook);
+        $this->assertTrue(false);
     }
 }
