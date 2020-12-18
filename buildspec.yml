@@ -57,7 +57,7 @@ phases:
       # Dockerfileが更新されていたらイメージをビルドしてECRへpush、されていなければlatestをpull
       # - docker-compose -f docker-compose.prod.yaml up --build -d
       # - docker exec laravel-study bash -c "php artisan migrate --force"
-      - docker exec laravel-study bash -c "php artisan config:clear && php artisan cache:clear && php artisan migrate --env=testing --force"
+      - docker exec laravel-study bash -c "composer install && php artisan config:clear && php artisan cache:clear && php artisan migrate --env=testing --force"
       # ##### Execute test ########################################
       # - docker exec laravel-study bash -c "./vendor/bin/phpunit"
       - |
