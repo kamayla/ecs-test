@@ -15,7 +15,7 @@ services:
     volumes:
     - ecs_test:/var/lib/mysql
     ports:
-    - 3306:3306
+    - 4306:3306
     networks:
     - test
 
