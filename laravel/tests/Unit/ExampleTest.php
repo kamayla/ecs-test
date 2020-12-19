@@ -16,11 +16,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        for ($i = 0; $i < 100; $i++) {
-            $book = new Book();
-            $book->name = 'hoge';
-            $saveBook = $book->save();
-        }
+        factory(Book::class, 100)->create();
         $this->assertCount(100, Book::all());
     }
 }
