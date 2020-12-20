@@ -16,7 +16,13 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        factory(Book::class, 100)->create();
-        $this->assertCount(100, Book::all());
+        factory(Book::class, 1000)->create();
+        $this->assertCount(1000, Book::all());
+    }
+
+
+    public function testFailed()
+    {
+        $this->assertSame(3, 1);
     }
 }
