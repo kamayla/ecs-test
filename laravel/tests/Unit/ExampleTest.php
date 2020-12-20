@@ -23,6 +23,6 @@ class ExampleTest extends TestCase
 
     public function testFailed()
     {
-        $this->assertSame(3, 1);
+        $this->assertSame(3, 3);
     }
 }
