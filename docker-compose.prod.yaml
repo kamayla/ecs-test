@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    image: 016992890397.dkr.ecr.ap-northeast-1.amazonaws.com/laravel:1.0.1
+    image: laravel-study
     networks:
     - laravel_study-network
 
@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
-    image: 016992890397.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:1.0.1
+    image: nginx-study
     container_name: nginx-study
     ports:
     - 80:80
