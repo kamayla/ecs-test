@@ -1,5 +1,5 @@
 FROM php:7.2-fpm
-COPY php.ini /usr/local/etc/php/
+COPY ./docker/php/php.ini /usr/local/etc/php/
 COPY ./laravel /var/www/
 
 RUN apt-get update \

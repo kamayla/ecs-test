@@ -3,8 +3,6 @@ env:
   parameter-store:
     DOCKER_USER: dockerhub-user
     DOCKER_TOKEN: dockerhub-token
-    DB_HOST: ecs-laravel-db-host
-    DB_PASSWORD: ecs-laravel-db-pass
 phases:
   install:
     runtime-versions:
@@ -23,7 +21,7 @@ phases:
       - echo ${CODEBUILD_BUILD_ARN}
       - OLDIFS=$IFS && IFS=':' && set -- ${CODEBUILD_BUILD_ARN} && AWS_ACCOUNT_ID=$5 && IFS=$OLDIFS
       - ROOT_DIR=`pwd`
-      - ECR_IMAGE_LARAVEL_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/ecs-practice/laravel-study
+      - ECR_IMAGE_LARAVEL_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/laravel
       # gitのコミットハッシュを使ってdockerイメージ
       - COMMIT_HASH=`echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-9`
       # 下記のDockerfileが変更されていたらイメージをビルドしてECRへpushする
@@ -37,13 +35,13 @@ phases:
         echo ">>>     COMMIT_HASH: ${COMMIT_HASH}"
         echo ">>>     IMGDEF_JSON_FILE: ${IMGDEF_JSON_FILE}"
       # migration様に.envを生成
-      - touch ${ROOT_DIR}/laravel/.env
-      - echo DB_HOST=${DB_HOST} >> ${ROOT_DIR}/laravel/.env
-      - echo DB_PASSWORD=${DB_PASSWORD} >> ${ROOT_DIR}/laravel/.env
-      - echo DB_CONNECTION=mysql >> ${ROOT_DIR}/laravel/.env
-      - echo DB_PORT=3306 >> ${ROOT_DIR}/laravel/.env
-      - echo DB_DATABASE=ecsdb >> ${ROOT_DIR}/laravel/.env
-      - echo DB_USERNAME=root >> ${ROOT_DIR}/laravel/.env
+#      - touch ${ROOT_DIR}/laravel/.env
+#      - echo DB_HOST=${DB_HOST} >> ${ROOT_DIR}/laravel/.env
+#      - echo DB_PASSWORD=${DB_PASSWORD} >> ${ROOT_DIR}/laravel/.env
+#      - echo DB_CONNECTION=mysql >> ${ROOT_DIR}/laravel/.env
+#      - echo DB_PORT=3306 >> ${ROOT_DIR}/laravel/.env
+#      - echo DB_DATABASE=ecsdb >> ${ROOT_DIR}/laravel/.env
+#      - echo DB_USERNAME=root >> ${ROOT_DIR}/laravel/.env
 
   build:
     commands:
@@ -54,8 +52,8 @@ phases:
       ##### dockerイメージのビルド ###################################
       # Dockerfileが更新されていたらイメージをビルドしてECRへpush、されていなければlatestをpull
       - docker-compose -f docker-compose.prod.yaml up --build -d laravel-study
-      - docker exec laravel-study bash -c "php artisan migrate --force"
-      - docker exec laravel-study bash -c 'php artisan migrate --env=testing --force && ./vendor/bin/phpunit'
+      - docker exec laravel-study bash -c "php artisan migrate --force" # DatabaseをMigrationして
+      - docker exec laravel-study bash -c 'php artisan migrate --env=testing --force && ./vendor/bin/phpunit' # テストを走らせる
       - |
         set -e
         IMGDEF_JSON=${IMGDEF_JSON}$(printf '{"name":"%s", "imageUri": "%s"},' laravel ${ECR_IMAGE_LARAVEL_URI}:${COMMIT_HASH})

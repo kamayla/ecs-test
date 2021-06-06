@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: rgb(253, 0, 0);
+                background-color: rgba(253, 0, 0, .4);
                 color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -63,7 +63,7 @@
             }
 
             .laravel-title {
-                color: orangered;
+                color: burlywood;
                 border: 1px solid salmon;
                 font-size: 24px;
                 border-radius: 8px;
